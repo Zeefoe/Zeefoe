@@ -1,7 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <body style="background-color: rgb(37, 37, 37); font-family: Arial, sans-serif; font-size: 16px;">
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+    <head>
+        <style>
+            button {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: all 0.4s ease-out;
+                background-color: rgb(0, 182, 9);
+                color: rgb(255, 255, 255);
+                padding: 12px 20px;
+                border-radius: 20px;
+                border: none;
+                font-size: 16px;
+                cursor: wait;
+            }
+        </style>
+    </head>
+    <body style="background-color: rgb(37, 37, 37); color:white; font-family: Arial, sans-serif; font-size: 16px;">
+        <button id="button", disabled>free robux</button>
+    </body>
+    <script>
+const button = document.querySelector("#button");
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener("mousemove", function(event) {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+
+  const buttonRect = button.getBoundingClientRect();
+  const buttonX = buttonRect.left + buttonRect.width / 2;
+  const buttonY = buttonRect.top + buttonRect.height / 2;
+
+  const distance = calculateDistance(mouseX, mouseY, buttonX, buttonY);
+  if (distance < 150) {
+    const angle = calculateAngle(mouseX, mouseY, buttonX, buttonY);
+    let newX = buttonX + Math.cos(angle) * 300;
+    let newY = buttonY + Math.sin(angle) * 300;
+
+    const maxX = window.innerWidth - buttonRect.width / 2;
+    const minX = buttonRect.width / 2;
+    const maxY = window.innerHeight - buttonRect.height / 2;
+    const minY = buttonRect.height / 2;
+
+    if (newX > maxX) {
+      newX = window.innerWidth / 2 - buttonRect.width / 2;
+    } else if (newX < minX) {
+      newX = window.innerWidth / 2 - buttonRect.width / 2;
+    }
+
+    if (newY > maxY) {
+      newY = window.innerHeight / 2 - buttonRect.height / 2;
+    } else if (newY < minY) {
+      newY = window.innerHeight / 2 - buttonRect.height / 2;
+    }
+
+    button.style.left = `${newX}px`;
+    button.style.top = `${newY}px`;
+  }
+});
+
+function calculateDistance(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+function calculateAngle(x1, y1, x2, y2) {
+  return Math.atan2(y2 - y1, x2 - x1);
+}
+
+    </script>
 </html>
