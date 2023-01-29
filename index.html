@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            button {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                transition: all 0.4s ease-out;
-                background-color: rgb(0, 182, 9);
-                color: rgb(255, 255, 255);
-                padding: 12px 20px;
-                border-radius: 20px;
-                border: none;
-                font-size: 16px;
-                cursor: wait;
-            }
-        </style>
+      <style>
+        #button {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease-out;
+            background-color: rgb(0, 182, 9);
+            color: rgb(255, 255, 255);
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: none;
+            font-size: 16px;
+            cursor: wait;
+        }
+    </style>
     </head>
     <body style="background-color: rgb(37, 37, 37); color:white; font-family: Arial, sans-serif; font-size: 16px;">
         <button id="button", disabled>free robux</button>
-    </body>
+    </body>    
     <script>
 const button = document.querySelector("#button");
 let mouseX = 0;
@@ -71,4 +71,27 @@ function calculateAngle(x1, y1, x2, y2) {
 }
 
     </script>
+<style>
+  #buton {
+      position: absolute;
+      left: 50%;
+      top: 97%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s ease-out;
+      background-color: rgb(99, 99, 99);
+      color: rgb(255, 255, 255);
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  #buton:hover {
+      box-shadow: 0 0 10px rgb(103, 174, 255);
+  }
+</style>
+</head>
+<body style="background-color: rgb(37, 37, 37); color:white; font-family: Arial, sans-serif; font-size: 16px;">
+  <button id="buton" onclick="window.location.href='amongus.html'">amongus</button>
+</body>
+
 </html>
