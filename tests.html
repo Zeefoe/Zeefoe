@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #cursor {
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: #39ff14;
+          position: absolute;
+          cursor: none;
+        }
+      </style>
+      
+      <div id="cursor"></div>
+      
+      <script>
+        const cursor = document.querySelector("#cursor");
+      
+        document.addEventListener("mousemove", e => {
+          cursor.style.top = `${e.clientY - 10}px`;
+          cursor.style.left = `${e.clientX - 10}px`;
+        });
+      </script>
+<style>
+    .trail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  
+    .trail .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: #39ff14;
+      position: absolute;
+      transform: translate(-5px, -5px);
+      opacity: 1;
+      transition: all 0.3s ease-out;
+    }
+  </style>
+  
+  <div class="trail"></div>
+  
+  <script>
+    const trail = document.querySelector(".trail");
+  
+    document.addEventListener("mousemove", e => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.style.top = `${e.clientY}px`;
+      dot.style.left = `${e.clientX}px`;
+      trail.appendChild(dot);
+  
+      setTimeout(() => {
+        dot.style.opacity = 0;
+      }, 500);
+    });
+  </script>
+  
+</html>
